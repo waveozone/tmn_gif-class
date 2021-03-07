@@ -10,7 +10,7 @@ if (isset($_GET['phone']) || isset($_GET['link'])) {
     $xxx = json_decode($tw->redeem($_GET['link'], $_GET['phone']), true);
 
     if ($xxx['status']['code'] == "SUCCESS") {
-        $am = number_format($xxx['data']['voucher']['amount_baht'], 0, '.', '');
+        $am = str_replace(',', '', $xxx['data']['voucher']['amount_baht']);
 
         $data = array(
             "status" => "success",

@@ -11,7 +11,7 @@ $tw = new phaiwan_tmn_gif();
 ```php
 $redeem = json_decode($tw->redeem($_GET['link'], $_GET['phone']),true);
 if ($xxx['status']['code'] == "SUCCESS") {
-    $amount = number_format($xxx['data']['voucher']['amount_baht'], 0, '.', '');
+    $amount = str_replace(',', '', $xxx['data']['voucher']['amount_baht']);
     echo $amount." บาท";
     //code here 
 } else {
